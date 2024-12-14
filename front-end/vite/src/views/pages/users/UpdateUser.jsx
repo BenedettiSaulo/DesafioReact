@@ -138,7 +138,7 @@ const UpdateUser = () => {
             sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                minHeight: 'calc(100vh - 85.52px - 36.5px - 19.75px)',
+                minHeight: '100%',
                 padding: '20px',
                 backgroundColor: '#FFF'
             }}

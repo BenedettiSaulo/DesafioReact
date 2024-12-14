@@ -21,19 +21,15 @@ const Header = () => {
     const location = useLocation();
 
     useEffect(() => {
-        switch (location.pathname) {
-            case '/user/create':
-                setTitle('Cadastrar Usuário');
-                setIsMain(false);
-                break;
-            case '/user/update':
-                setTitle('Atualizar Usuário');
-                setIsMain(false);
-                break;
-            default:
-                setTitle('Lista de Usuários');
-                setIsMain(true);
-                break;
+        if (location.pathname.startsWith('/user/update/')) {
+            setTitle('Atualizar Usuário');
+            setIsMain(false);
+        } else if (location.pathname === '/user/create') {
+            setTitle('Cadastrar Usuário');
+            setIsMain(false);
+        } else {
+            setTitle('Lista de Usuários');
+            setIsMain(true);
         }
     }, [location.pathname]);
 
@@ -49,7 +45,7 @@ const Header = () => {
                     }
                 }}
             >
-                <Box component="span" sx={{ display: { xs: 'none', md: 'block' }, flexGrow: 1 }}>
+                <Box component="span" sx={{ flexGrow: 1 }}>
                     <h2>{title}</h2>
                 </Box>
             </Box>
